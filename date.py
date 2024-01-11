@@ -110,7 +110,7 @@ class DateTimeUtil():
         if project == '1、金库':
             res += date_str[4:6]
             res += '月份汇总'
-        if project == '3、密码探测':
+        elif project == '3、密码探测':
             res += date_str[0:4]
             res += '年'
             res += date_str[4:6]

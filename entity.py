@@ -3,6 +3,8 @@ class JhBusi:
         self.id = id
 
 class VaultTime:
+    group_id = 1
+    region_id = 11
     def __init__(self,id,app_name,app_id,app_path,op1_name,op1_p_id,op1_path,op1_s_id,
                  app1,app1_time,op2_name,op2_p_id,op2_path,op2_s_id,app2,app2_time,flag):
         self.id = id
