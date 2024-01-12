@@ -1,5 +1,5 @@
 def generate_id(busi_id,date,index):
-    res = str(busi_id)+date
+    res = '11'+date+str(busi_id)
     if index < 10:
         res += '0000'
     elif index < 100:

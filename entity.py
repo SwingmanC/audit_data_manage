@@ -5,6 +5,9 @@ class JhBusi:
 class VaultTime:
     group_id = 1
     region_id = 11
+    busi_id = 6756
+    rule_id = 10006040
+    show_id = 102853
     def __init__(self,id,app_name,app_id,app_path,op1_name,op1_p_id,op1_path,op1_s_id,
                  app1,app1_time,op2_name,op2_p_id,op2_path,op2_s_id,app2,app2_time,flag):
         self.id = id
@@ -26,10 +29,16 @@ class VaultTime:
         self.flag = flag
 
 class VaultReason:
-    def __init__(self,id,op_name,op_tele,op_org,op_path,reason,op_time,
+    group_id = 1
+    region_id = 11
+    busi_id = 6757
+    rule_id = 10006041
+    show_id = 102854
+    def __init__(self,id,op_name,op_id,op_tele,op_org,op_path,reason,op_time,
                  app_name,app_id,app_tele,app_org,app_path,app_time):
         self.id = id
         self.op_name = op_name
+        self.op_id = op_id
         self.op_tele = op_tele
         self.op_org = op_org
         self.op_path = op_path
