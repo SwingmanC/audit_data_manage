@@ -52,9 +52,14 @@ class VaultReason:
         self.app_time = app_time
 
 class BesPljk:
-    def __init__(self,person_id,region_id,username,zh_name,id_state,org_path,org,type,zh_type,query_cnt,time):
-        self.person_id = person_id
-        self.region_id = region_id
+    group_id = 1
+    region_id = 11
+    busi_id = 6758
+    rule_id = 10006042
+    show_id = 102855
+    def __init__(self,id,staff_id,username,zh_name,id_state,org_path,org,type,zh_type,query_cnt,time):
+        self.id = id
+        self.staff_id = staff_id
         self.username = username
         self.zh_name = zh_name
         self.id_state = id_state
@@ -66,9 +71,14 @@ class BesPljk:
         self.time = time
 
 class BesYcsj:
-    def __init__(self,person_id,region_id,username,id_state,zh_name,org_path,org,time,op_cnt,op_sum,per):
-        self.person_id = person_id
-        self.region_id = region_id
+    group_id = 1
+    region_id = 11
+    busi_id = 6759
+    rule_id = 10006043
+    show_id = 102856
+    def __init__(self,id,staff_id,username,id_state,zh_name,org_path,org,time,op_cnt,op_sum,per):
+        self.id = id
+        self.staff_id = staff_id
         self.username = username
         self.zh_name = zh_name
         self.id_state = id_state
@@ -80,9 +90,14 @@ class BesYcsj:
         self.per = per
 
 class BesDsj:
-    def __init__(self,person_id,region_id,username,id_state,zh_name,org_path,org,type,zh_type,time,cnt):
-        self.person_id = person_id
-        self.region_id = region_id
+    group_id = 1
+    region_id = 11
+    busi_id = 6760
+    rule_id = 10006044
+    show_id = 102857
+    def __init__(self,id,staff_id,username,id_state,zh_name,org_path,org,type,zh_type,time,cnt):
+        self.id = id
+        self.staff_id = staff_id
         self.username = username
         self.id_state = id_state
         self.zh_name = zh_name
@@ -94,9 +109,14 @@ class BesDsj:
         self.cnt = cnt
 
 class BesSum:
-    def __init__(self,person_id,region_id,cnt,username,id_state,zh_name,org_path,org,time):
-        self.person_id = person_id
-        self.region_id = region_id
+    group_id = 1
+    region_id = 11
+    busi_id = 6761
+    rule_id = 10006045
+    show_id = 102858
+    def __init__(self,id,staff_id,cnt,username,id_state,zh_name,org_path,org,time):
+        self.id = id
+        self.staff_id = staff_id
         self.cnt = cnt
         self.username = username
         self.id_state = id_state
@@ -106,11 +126,15 @@ class BesSum:
         self.time = time
 
 class PwDetectDetail:
-    def __init__(self,id,db,region_id,staff_id,staff_name,org,mobile,ip,op_time,
+    group_id = 1
+    region_id = 11
+    busi_id = 6762
+    rule_id = 10006046
+    show_id = 102859
+    def __init__(self,id,db,staff_id,staff_name,org,mobile,ip,op_time,
                  pw,cydl,dcn,fhtz,interval,op_cnt,repeat_per,remark):
         self.id = id
         self.db = db
-        self.region_id = region_id
         self.staff_id = staff_id
         self.staff_name = staff_name
         self.org = org
@@ -126,8 +150,14 @@ class PwDetectDetail:
         self.repeat_per = repeat_per
         self.remark = remark
 
-class PwDetectItem:
-    def __init__(self,org,staff_id,staff_name,op_time,op_cnt,number_cnt,remark):
+class PwDetectSum:
+    group_id = 1
+    region_id = 11
+    busi_id = 6763
+    rule_id = 10006047
+    show_id = 102860
+    def __init__(self,id,org,staff_id,staff_name,op_time,op_cnt,number_cnt,remark):
+        self.id = id
         self.org = org
         self.staff_id = staff_id
         self.staff_name = staff_name
@@ -136,11 +166,15 @@ class PwDetectItem:
         self.number_cnt = number_cnt
         self.remark = remark
 
-class OrderQueryItem:
-    def __init__(self,id,region_id,op_time,staff_id,username,zh_name,op_path,
+class OrderQuery:
+    group_id = 1
+    region_id = 11
+    busi_id = 6764
+    rule_id = 10006048
+    show_id = 102861
+    def __init__(self,id,op_time,staff_id,username,zh_name,op_path,
                  op_org,op_res,start_time,end_time,ob_id,order_type,telephone):
         self.id = id
-        self.region_id = region_id
         self.op_time = op_time
         self.staff_id = staff_id
         self.username = username
@@ -154,7 +188,12 @@ class OrderQueryItem:
         self.order_type = order_type
         self.telephone = telephone
 
-class SstQueryItem:
+class SstQuery:
+    group_id = 1
+    region_id = 11
+    busi_id = 6765
+    rule_id = 10006049
+    show_id = 102862
     def __init__(self,id,oper_time,telephone,staff_id,zh_name,org,op_time):
         self.id = id
         self.oper_time = oper_time

@@ -2,12 +2,11 @@ import calendar
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-
 class DateTimeUtil():
 
     def get_cur_month(self):
         # 获取当前月
-        return datetime.now().strftime("%Y-%m")
+        return datetime.now().strftime("%Y%m")
 
     def get_last_month(self, number=1):
         # 获取前几个月
