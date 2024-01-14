@@ -116,7 +116,7 @@ def bes_dsj_mapper(file_path,date):
             staff_id=str(data['人员ID']),
             username=str(data['主账号']),
             id_state=str(data['账号状态']),
-            zh_name=str(data['中文名']),
+            zh_name=str(data['中文姓名']),
             org_path=str(data['组织机构树']),
             org=str(data['组织机构']),
             type=str(data['类型']),
