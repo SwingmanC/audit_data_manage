@@ -43,15 +43,19 @@ def upload_vault_reason(db_connect, file_path, date, log_file_path):
                 rec_date = datetime.datetime.now()
                 cursor.execute('insert into qdyy_data.JH_BUSI_INFO@szyy3 '
                                '(id, GROUPID, REGION_ID, BUSI_ID, RULE_ID, RECORGID, RECOPID, RECDATE, '
-                               'SERVNUMBER, COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6, COLUMN7, COLUMN8, COLUMN9, COLUMN10, COLUMN11, '
-                               'SHOW_ID,einvoice_flag,cd_flag,recopname)'
+                               'SERVNUMBER, COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6, COLUMN7, COLUMN8, COLUMN9, COLUMN10, COLUMN11, COLUMN12, '
+                               'SHOW_ID,einvoice_flag,cd_flag)'
                                'values '
                                '(:1,:2,:3,:4,:5,:6,:7,:8,:9,:10,:11,:12,:13,:14,:15,:16,:17,:18,:19,:20,:21,:22,:23,:24)'
                                , (int(item.id), item.group_id, item.region_id, item.busi_id, item.rule_id, org_id, str(staff_id),rec_date,
-                                  item.op_tele, item.op_id, item.op_org, item.op_path, item.reason, item.op_time, item.app_name,item.app_id, item.app_tele,item.app_org,item.app_path, item.app_time,
-                                  item.show_id, 0, 1, item.op_name))
+                                  item.op_tele, item.op_id, item.op_name, item.op_org, item.op_path, item.reason, item.op_time, item.app_name,item.app_id, item.app_tele,item.app_org,item.app_path, item.app_time,
+                                  item.show_id, 0, 1))
             else:
                 write_log(log_file_path,item.op_tele)
+    cursor.execute('insert into qdyy_data.T_DATA_SYNC_LOG@szyy3'
+                   '(region_id, exec_date, data_item, data_type, insert_time, status) '
+                   'values '
+                   '(11,to_char(sysdate - 1, \'yyyymmdd\'),10006041,5,sysdate,0)')
     db_connect.commit()
     cursor.close()
 
@@ -63,8 +67,9 @@ def upload_bes_pljk(db_connect, file_path, date, log_file_path):
     for item in bes_pljk_list:
         flag = is_county(item.org_path)
         if flag:
+            # cursor.execute('select orgaid from renlh_4a_crm where staffid = %s and staffstatus =\'正常\'' % (item.staff_id))
             cursor.execute(
-                'select orgaid from renlh_4a_crm where staffid = %s and staffstatus =\'正常\'' % (item.staff_id))
+                'select orgaid from renlh_4a_crm where staffid = %s ' % (item.staff_id))
             recorg_id_list = cursor.fetchall()
             if len(recorg_id_list) > 0:
                 org_id = recorg_id_list[0][0]
@@ -80,6 +85,10 @@ def upload_bes_pljk(db_connect, file_path, date, log_file_path):
                                   item.show_id, item.type, 0, 1))
             else:
                 write_log(log_file_path,item.staff_id)
+    cursor.execute('insert into qdyy_data.T_DATA_SYNC_LOG@szyy3'
+                   '(region_id, exec_date, data_item, data_type, insert_time, status) '
+                   'values '
+                   '(11,to_char(sysdate - 1, \'yyyymmdd\'),10006042,5,sysdate,0)')
     db_connect.commit()
     cursor.close()
 
@@ -90,8 +99,10 @@ def upload_bes_ycsj(db_connect, file_path, date,log_file_path):
     for item in bes_ycsj_list:
         flag = is_county(item.org_path)
         if flag:
+            # cursor.execute(
+            #     'select orgaid from renlh_4a_crm where staffid = %s and staffstatus =\'正常\'' % (item.staff_id))
             cursor.execute(
-                'select orgaid from renlh_4a_crm where staffid = %s and staffstatus =\'正常\'' % (item.staff_id))
+                'select orgaid from renlh_4a_crm where staffid = %s ' % (item.staff_id))
             recorg_id_list = cursor.fetchall()
             if len(recorg_id_list) > 0:
                 org_id = recorg_id_list[0][0]
@@ -107,6 +118,10 @@ def upload_bes_ycsj(db_connect, file_path, date,log_file_path):
                                   item.show_id, 0, 1))
             else:
                 write_log(log_file_path,item.staff_id)
+    cursor.execute('insert into qdyy_data.T_DATA_SYNC_LOG@szyy3'
+                   '(region_id, exec_date, data_item, data_type, insert_time, status) '
+                   'values '
+                   '(11,to_char(sysdate - 1, \'yyyymmdd\'),10006043,5,sysdate,0)')
     db_connect.commit()
     cursor.close()
 
@@ -117,8 +132,10 @@ def upload_bes_dsj(db_connect, file_path, date, log_file_path):
     for item in bes_dsj_list:
         flag = is_county(item.org_path)
         if flag:
+            # cursor.execute(
+            #     'select orgaid from renlh_4a_crm where staffid = %s and staffstatus =\'正常\'' % (item.staff_id))
             cursor.execute(
-                'select orgaid from renlh_4a_crm where staffid = %s and staffstatus =\'正常\'' % (item.staff_id))
+                'select orgaid from renlh_4a_crm where staffid = %s ' % (item.staff_id))
             recorg_id_list = cursor.fetchall()
             if len(recorg_id_list) > 0:
                 org_id = recorg_id_list[0][0]
@@ -134,6 +151,10 @@ def upload_bes_dsj(db_connect, file_path, date, log_file_path):
                                   item.show_id, item.type, 0, 1))
             else:
                 write_log(log_file_path,item.staff_id)
+    cursor.execute('insert into qdyy_data.T_DATA_SYNC_LOG@szyy3'
+                   '(region_id, exec_date, data_item, data_type, insert_time, status) '
+                   'values '
+                   '(11,to_char(sysdate - 1, \'yyyymmdd\'),10006044,5,sysdate,0)')
     db_connect.commit()
     cursor.close()
 
@@ -144,8 +165,10 @@ def upload_bes_sum(db_connect, file_path, date, log_file_path):
     for item in bes_sum_list:
         flag = is_county(item.org_path)
         if flag:
+            # cursor.execute(
+            #     'select orgaid from renlh_4a_crm where staffid = %s and staffstatus =\'正常\'' % (item.staff_id))
             cursor.execute(
-                'select orgaid from renlh_4a_crm where staffid = %s and staffstatus =\'正常\'' % (item.staff_id))
+                'select orgaid from renlh_4a_crm where staffid = %s ' % (item.staff_id))
             recorg_id_list = cursor.fetchall()
             if len(recorg_id_list) > 0:
                 org_id = recorg_id_list[0][0]
@@ -161,6 +184,10 @@ def upload_bes_sum(db_connect, file_path, date, log_file_path):
                                   item.show_id, 0, 1))
             else:
                 write_log(log_file_path,item.staff_id)
+    cursor.execute('insert into qdyy_data.T_DATA_SYNC_LOG@szyy3'
+                   '(region_id, exec_date, data_item, data_type, insert_time, status) '
+                   'values '
+                   '(11,to_char(sysdate - 1, \'yyyymmdd\'),10006045,5,sysdate,0)')
     db_connect.commit()
     cursor.close()
 
@@ -188,6 +215,10 @@ def upload_pw_detect_detail(db_connect, file_path, date, log_file_path):
                                   item.show_id, 0, 1))
             else:
                 write_log(log_file_path,item.staff_id)
+    cursor.execute('insert into qdyy_data.T_DATA_SYNC_LOG@szyy3'
+                   '(region_id, exec_date, data_item, data_type, insert_time, status) '
+                   'values '
+                   '(11,to_char(sysdate - 1, \'yyyymmdd\'),10006046,5,sysdate,0)')
     db_connect.commit()
     cursor.close()
 
@@ -213,6 +244,10 @@ def upload_pw_detect_sum(db_connect, file_path, date, log_file_path):
                               item.show_id, 0, 1))
         else:
             write_log(log_file_path,item.staff_id)
+    cursor.execute('insert into qdyy_data.T_DATA_SYNC_LOG@szyy3'
+                   '(region_id, exec_date, data_item, data_type, insert_time, status) '
+                   'values '
+                   '(11,to_char(sysdate - 1, \'yyyymmdd\'),10006047,5,sysdate,0)')
     db_connect.commit()
     cursor.close()
 
@@ -240,6 +275,10 @@ def upload_order_query(db_connect, file_path, date, log_file_path):
                                   item.show_id, item.order_type, 0, 1))
             else:
                 write_log(log_file_path,item.staff_id)
+    cursor.execute('insert into qdyy_data.T_DATA_SYNC_LOG@szyy3'
+                   '(region_id, exec_date, data_item, data_type, insert_time, status) '
+                   'values '
+                   '(11,to_char(sysdate - 1, \'yyyymmdd\'),10006048,5,sysdate,0)')
     db_connect.commit()
     cursor.close()
 
@@ -267,6 +306,10 @@ def upload_sst_query(db_connect, file_path, date, log_file_path):
                                   item.show_id, 0, 1))
             else:
                 write_log(log_file_path,item.staff_id)
+    cursor.execute('insert into qdyy_data.T_DATA_SYNC_LOG@szyy3'
+                   '(region_id, exec_date, data_item, data_type, insert_time, status) '
+                   'values '
+                   '(11,to_char(sysdate - 1, \'yyyymmdd\'),10006049,5,sysdate,0)')
     db_connect.commit()
     cursor.close()
 

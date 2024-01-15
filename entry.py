@@ -57,5 +57,5 @@ if __name__ == '__main__':
     service.upload_pw_detect_sum(db_connect, file_path_list[7], date, log_file_path)
     print('【单个清单查询】开始上传')
     service.upload_order_query(db_connect, file_path_list[8], date, log_file_path)
-    print('【首三推查询日志】开始上传')
-    service.upload_sst_query(db_connect, file_path_list[9], date, log_file_path)
+    # print('【首三推查询日志】开始上传')
+    # service.upload_sst_query(db_connect, file_path_list[9], date, log_file_path)
