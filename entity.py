@@ -31,9 +31,9 @@ class VaultTime:
 class VaultReason:
     group_id = 1
     region_id = 11
-    busi_id = 6757
-    rule_id = 10006041
-    show_id = 102854
+    busi_id = 6756
+    rule_id = 10006040
+    show_id = 102853
     def __init__(self,id,op_name,op_id,op_tele,op_org,op_path,reason,op_time,
                  app_name,app_id,app_tele,app_org,app_path,app_time):
         self.id = id
@@ -54,9 +54,9 @@ class VaultReason:
 class BesPljk:
     group_id = 1
     region_id = 11
-    busi_id = 6758
-    rule_id = 10006042
-    show_id = 102855
+    busi_id = 6756
+    rule_id = 10006040
+    show_id = 102853
     def __init__(self,id,staff_id,username,zh_name,id_state,org_path,org,type,zh_type,query_cnt,time):
         self.id = id
         self.staff_id = staff_id
@@ -73,9 +73,9 @@ class BesPljk:
 class BesYcsj:
     group_id = 1
     region_id = 11
-    busi_id = 6759
-    rule_id = 10006043
-    show_id = 102856
+    busi_id = 6756
+    rule_id = 10006040
+    show_id = 102853
     def __init__(self,id,staff_id,username,id_state,zh_name,org_path,org,time,op_cnt,op_sum,per):
         self.id = id
         self.staff_id = staff_id
@@ -92,9 +92,9 @@ class BesYcsj:
 class BesDsj:
     group_id = 1
     region_id = 11
-    busi_id = 6760
-    rule_id = 10006044
-    show_id = 102857
+    busi_id = 6756
+    rule_id = 10006040
+    show_id = 102853
     def __init__(self,id,staff_id,username,id_state,zh_name,org_path,org,type,zh_type,time,cnt):
         self.id = id
         self.staff_id = staff_id
@@ -111,9 +111,9 @@ class BesDsj:
 class BesSum:
     group_id = 1
     region_id = 11
-    busi_id = 6761
-    rule_id = 10006045
-    show_id = 102858
+    busi_id = 6756
+    rule_id = 10006040
+    show_id = 102853
     def __init__(self,id,staff_id,cnt,username,id_state,zh_name,org_path,org,time):
         self.id = id
         self.staff_id = staff_id
@@ -128,9 +128,9 @@ class BesSum:
 class PwDetectDetail:
     group_id = 1
     region_id = 11
-    busi_id = 6762
-    rule_id = 10006046
-    show_id = 102859
+    busi_id = 6756
+    rule_id = 10006040
+    show_id = 102853
     def __init__(self,id,db,staff_id,staff_name,org,mobile,ip,op_time,
                  pw,cydl,dcn,fhtz,interval,op_cnt,repeat_per,remark):
         self.id = id
@@ -153,9 +153,9 @@ class PwDetectDetail:
 class PwDetectSum:
     group_id = 1
     region_id = 11
-    busi_id = 6763
-    rule_id = 10006047
-    show_id = 102860
+    busi_id = 6756
+    rule_id = 10006040
+    show_id = 102853
     def __init__(self,id,org,staff_id,staff_name,op_time,op_cnt,number_cnt,remark):
         self.id = id
         self.org = org
@@ -169,9 +169,9 @@ class PwDetectSum:
 class OrderQuery:
     group_id = 1
     region_id = 11
-    busi_id = 6764
-    rule_id = 10006048
-    show_id = 102861
+    busi_id = 6756
+    rule_id = 10006040
+    show_id = 102853
     def __init__(self,id,op_time,staff_id,username,zh_name,op_path,
                  op_org,op_res,start_time,end_time,ob_id,order_type,telephone):
         self.id = id
@@ -191,9 +191,9 @@ class OrderQuery:
 class SstQuery:
     group_id = 1
     region_id = 11
-    busi_id = 6765
-    rule_id = 10006049
-    show_id = 102862
+    busi_id = 6756
+    rule_id = 10006040
+    show_id = 102853
     def __init__(self,id,oper_time,telephone,staff_id,zh_name,org,op_time):
         self.id = id
         self.oper_time = oper_time

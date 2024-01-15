@@ -41,6 +41,7 @@ if __name__ == '__main__':
     # 上传审计数据
     db_connect = db_connect()
     log_file_path = root_path + 'log.txt'
+    cursor = db_connect.cursor()
     print('【金库前台异常申请理由】开始上传')
     service.upload_vault_reason(db_connect, file_path_list[1], date, log_file_path)
     print('【苏州bes批量监控审计】开始上传')
@@ -59,3 +60,10 @@ if __name__ == '__main__':
     service.upload_order_query(db_connect, file_path_list[8], date, log_file_path)
     # print('【首三推查询日志】开始上传')
     # service.upload_sst_query(db_connect, file_path_list[9], date, log_file_path)
+    cursor.execute('insert into qdyy_data.T_DATA_SYNC_LOG@szyy3'
+                   '(region_id, exec_date, data_item, data_type, insert_time, status) '
+                   'values '
+                   '(11,to_char(sysdate - 1, \'yyyymmdd\'),10006040,5,sysdate,0)')
+    db_connect.commit()
+    cursor.close()
+    db_connect.close()
