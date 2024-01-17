@@ -76,7 +76,7 @@ def bes_pljk_mapper(file_path,date):
                                   type=str(data['类型']),
                                   zh_type=str(data['中文类型']),
                                   query_cnt=str(data['查询次数']),
-                                  time=str(data['查询次数']))
+                                  time=str(data['统计时间']))
         index += 1
         bes_pljk_list.append(bes_pljk)
     return bes_pljk_list
