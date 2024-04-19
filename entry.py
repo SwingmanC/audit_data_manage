@@ -63,7 +63,7 @@ if __name__ == '__main__':
     cursor.execute('insert into qdyy_data.T_DATA_SYNC_LOG@szyy3'
                    '(region_id, exec_date, data_item, data_type, insert_time, status) '
                    'values '
-                   '(11,to_char(sysdate - 1, \'yyyymmdd\'),10006040,5,sysdate,0)')
+                   '(11,to_char(sysdate, \'yyyymmdd\'),10006040,5,sysdate,0)')
     db_connect.commit()
     cursor.close()
     db_connect.close()

@@ -50,6 +50,8 @@ class DateTimeUtil():
             month = 12
         else:
             month -= 1
+        if month < 10:
+            month = '0' + str(month)
         # return '{}-{}-01'.format(year, month)
         return '{}{}01'.format(year, month)
 
@@ -85,6 +87,8 @@ class DateTimeUtil():
             month -= 1
         end = calendar.monthrange(year, month)[1]
         # return '{}-{}-{}'.format(year, month, end)
+        if month < 10:
+            month = '0' + str(month)
         return '{}{}{}'.format(year, month, end)
 
     def get_next_month_end(self, month_str=None):
