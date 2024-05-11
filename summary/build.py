@@ -30,6 +30,12 @@ def get_order_path(depart,project,date):
 # def get_multi_order_path(depart,project,date):
 #     file_name = project+date+'.xlsx'
 #     return constant.root+date+'/反馈后结果/'+depart+'/'+file_name
+def get_ip_or_plugin_path(depart,project,date):
+    file_name = project+date+'.xls'
+    return constant.root + date + '/反馈后结果/' + depart + '/' + file_name
+def get_sst_path(depart,project,date):
+    file_name = project+date+'.xlsx'
+    return constant.root+date+'/反馈后结果/'+depart+'/'+file_name
 
 def output_jk_path(project,date):
     file_name = project+date[5:6]+'月份汇总.xlsx'
@@ -61,3 +67,16 @@ def output_order_path(project,date):
 # def output_multiple_order_path(project,date):
 #     file_name = project+date+'.xlsx'
 #     return (constant.root+date+'/'+constant.output_directory+'/'+constant.category_list[2]+'/'+file_name)
+def output_ip_path(project,date):
+    file_name = project+date+'.xlsx'
+    return (constant.root + date + '/' + constant.output_directory + date + '/' + constant.category_list[
+        3] + '/' + file_name)
+
+def output_plugin_path(project,date):
+    file_name = project+date+'.xlsx'
+    return (constant.root + date + '/' + constant.output_directory + date + '/' + constant.category_list[
+        4] + '/' + file_name)
+
+def output_sst_path(project,date):
+    file_name = project+date+'.xlsx'
+    return (constant.root + date + '/' + constant.output_directory + date + '/' + file_name)

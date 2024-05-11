@@ -13,14 +13,18 @@ def read_data(depart,project,index,date,start_date,end_date):
         file_path = build.get_bes_path(depart, project, date,start_date,end_date)
     if 8 <= index <= 9:
         file_path = build.get_order_path(depart, project, date)
+    if 10 <= index <= 11:
+        file_path = build.get_ip_or_plugin_path(depart, project, date)
+    else:
+        file_path = build.get_sst_path(depart, project, date)
     # print('文件路径：'+file_path)
     if os.path.exists(file_path):
         df = pd.read_excel(file_path,sheet_name=ct.sheet_list[index],dtype=str)
-        if index < 9:
+        if index != 9:
             df = df[df['区县'].notna()]
         else:
             df = df[df['地市'] == '苏州']
-        if 4 <= index <= 7:
+        if 4 <= index <= 7 or 10 <= index <= 11:
             df = df[df['操作原因反馈'].notna()]
         else:
             df = df[df[df.columns[-1]].notna()]
@@ -34,6 +38,12 @@ def upload_data(df,project,index,date,start_date,end_date):
         file_path = build.output_bes_path(project, date, start_date, end_date)
     if 8 <= index <= 9:
         file_path = build.output_order_path(project, date)
+    if index == 10:
+        file_path = build.output_ip_path(project, date)
+    if index == 11:
+        file_path = build.output_plugin_path(project, date)
+    else:
+        file_path = build.output_sst_path(project,date)
 
     target_dir = os.path.dirname(file_path)
     os.makedirs(target_dir, exist_ok=True)
