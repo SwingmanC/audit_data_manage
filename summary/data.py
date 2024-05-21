@@ -15,7 +15,7 @@ def read_data(depart,project,index,date,start_date,end_date):
         file_path = build.get_order_path(depart, project, date)
     if 10 <= index <= 11:
         file_path = build.get_ip_or_plugin_path(depart, project, date)
-    else:
+    if index == 12:
         file_path = build.get_sst_path(depart, project, date)
     # print('文件路径：'+file_path)
     if os.path.exists(file_path):
@@ -42,7 +42,7 @@ def upload_data(df,project,index,date,start_date,end_date):
         file_path = build.output_ip_path(project, date)
     if index == 11:
         file_path = build.output_plugin_path(project, date)
-    else:
+    if index == 12:
         file_path = build.output_sst_path(project,date)
 
     target_dir = os.path.dirname(file_path)
